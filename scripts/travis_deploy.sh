@@ -13,7 +13,7 @@ git config --global user.name "Travis CI Deployment Bot"
 
 if [[ "${TRAVIS_PULL_REQUEST}" != "false" || "${TRAVIS_REPO_SLUG}" != "mdziurzynski/tac125-metabolic-model" ]]; then
     echo "Untracked build."
-    memote run --ignore-git
+    memote run --skip=test_consistency --ignore-git
     echo "Skip deploy."
     exit 0
 else
